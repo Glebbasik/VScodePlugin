@@ -1,0 +1,55 @@
+{
+  "name": "data-class-generator",
+  "displayName": "Data Class & Builder Generator",
+  "description": "Плагин для генерации классов данных и паттерна Builder из краткого текстового описания",
+  "version": "1.0.0",
+  "author": {
+    "name": "[Барышников Глеб Юрьевич]",
+    "url": "[https://github.com/](https://github.com/)[ВАШ_НИК]/[ВАШ_РЕПОЗИТОРИЙ]"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "data-class-generator.generate",
+        "title": "Generate Data Class & Builder"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "data-class-generator.generate",
+          "group": "modification"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "data-class-generator.generate",
+        "key": "ctrl+alt+g",
+        "mac": "cmd+alt+g",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "docs": "typedoc --out docs src/extension.ts"
+  },
+  "devDependencies": {
+    "@types/node": "18.x",
+    "@types/vscode": "^1.80.0",
+    "typedoc": "^0.25.0",
+    "typescript": "^5.1.6"
+  }
+}
